@@ -1,0 +1,99 @@
+
+
+
+body{
+    background-image:url(../img/fond-p.jpeg) ;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+@media (min-width: 576px) and (max-width: 992px) { 
+    body{
+        background-image: url(../img/balón-de-fútbol.jpg);
+        background-repeat: repeat-y;
+        background-size: cover;
+    }
+    h5{
+        text-shadow: 3px 3px 3px black;
+    }
+ }
+
+.barra{
+    background:linear-gradient( #08519e,#1877de, #08519e );
+}
+
+.bordes{
+    background: #02448a;
+}
+
+
+.pagina{
+    margin-left: 3%;
+    padding-right: 18%;
+}
+
+.pantallaModal{
+    background-image: url(../img/fond-p.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor{
+    background-color: #62b3ffb4;
+    margin: 2% 7% 2% 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 1px solid black;
+}
+
+h5{
+    color:white;
+    text-align: center;
+    margin-top: 2%; 
+}
+
+p{
+    color:white;
+    text-align: center;
+}
+
+table{
+    border: 1px solid white;
+}
+
+td{
+    text-align: center;
+    color: white;
+}
+
+.juego{
+    border: 1px #1877de solid;
+    color:#1877de;
+}
+
+.tituloForo{
+    margin-left: 21%;
+}
+
+iframe{
+    width: 70%;
+    height: 70%;
+    margin-left: 16%;
+}
+
+#mail{
+    color: #9eddff;
+}
+
+#mail:hover{
+    color: #000c48;
+}
+

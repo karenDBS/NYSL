@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--METAS Y LINKS PARA LA APP-->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="img/logo.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/logo.jpg">
+
+
+    <!--LINKS PARA ESTILOS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Northside Youth Soccer League</title>
+</head>
+
+<body>
+
+    <!--DIV CON NAVBAR-->
+
+    <div class="container-fluid" id="app">
+
+        <div class="hola row align-items-center">
+            <div class="col col-lg-3">
+                <img id="logo" src="img/nysl_logo.png" alt="logo del equipo de futbol">
+            </div>
+            <div class="col col-lg-9">
+                <h4 class="text-light">Northside Youth Soccer League</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="barra navbar navbar-expand-lg navbar-light">
+                    <span class="pagina navbar-brand text-light">Home</span>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="lista navbar-nav mr-auto">
+
+                            <li class="nav-item">
+                                <a id="botonRegistro" class="nav-link text-light" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    LogIn
+                                </a>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-center">
+                                        <div class="pantallaModal modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title " id="exampleModalLabel">Registrate</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!--INPUT-->
+                                                <div class="row">
+                                                    <form>
+                                                        <div class="col">
+                                                            <label class="text-light">mail: <input type="text"
+                                                                    name="mail" v-model="mail"></label>
+
+                                                            <label class="text-light">contraseña: <input type="password"
+                                                                    name="contraseña" v-model="password"></label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p id="errorMail" class="text-danger"></p>
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-3">
+                                                                    <button type="button"
+                                                                        v-on:click="registrar">registrar</button>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <button type="button" v-on:click="yaRegistrado">Ya
+                                                                        resgistrado</button>
+                                                                </div>
+                                                                <div class="col-5">
+                                                                    <button type="button"
+                                                                        v-on:click="registrarGmail">registrarse con
+                                                                        Gmail</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" v-on:click="logout">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    v-on:click='cambioDePantallas("primera-pantalla","Home")'>Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link text-light"
+                                    v-on:click='cambioDePantallas("segunda-pantalla","Information")'>Information</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    v-on:click='cambioDePantallas("tercera-pantalla","Location Maps")'>Location
+                                    Maps</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    v-on:click='cambioDePantallas("cuarta-pantalla","Contact")'>Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!--PRIMERA PANTALLA-->
+
+        <div id="primera-pantalla" class="contenedor row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <h5>August 4</h5>
+                <p>NYSL fundraiser</p>
+
+                <h5>August 16</h5>
+                <p>Season Kick-off: Meet the Teams</p>
+
+                <h5>September 1</h5>
+                <p>First Game of the Season( Check Game Schedule for details)</p>
+            </div>
+        </div>
+
+        <!--SEGUNDA PANTALLA-->
+
+        <div id="segunda-pantalla" class="contenedor row justify-content-center d-none">
+            <div class="col-md-6 col-lg-8">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center text-light">Equipos</th>
+                            <th class="text-center text-light">Location</th>
+                            <th class="text-center text-light">Chats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equipo 1 vs Equipo 3</td>
+                            <td><a class="text-light" href="https://goo.gl/maps/8r4c8ShQVrnsBJRH8">Estadio
+                                    Alberto J.
+                                    Armando</a></td>
+                            <td><button class="juego" v-on:click="chatDePartidos('1')">Game 1</button></td>
+                        </tr>
+                        <tr>
+                            <td>Equipo 4 vs Equipo 6</td>
+                            <td><a class="text-light" href="https://goo.gl/maps/khkgvQPuVWgw8Svv8">Estadio
+                                    Monumental
+                                    Antonio Vespucio
+                                    Liberti</a></td>
+                            <td><button class="juego" v-on:click="chatDePartidos('2')">Game 2</button></td>
+                        </tr>
+                        <tr>
+                            <td>Equipo 5 vs Equipo 2</td>
+                            <td><a class="text-light" href="https://goo.gl/maps/oXmifeZUP3Eoi9Hk9">Ciudad
+                                    Deportiva -
+                                    Club Atlético San
+                                    Lorenzo de Almagro</a></td>
+                            <td><button class="juego" v-on:click="chatDePartidos('3')">Game 3</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center text-light">Equipos</th>
+                            <th class="text-center text-light">Location</th>
+                            <th class="text-center text-light">Chats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equipo 6 vs Equipo 2</td>
+                            <td><a class="text-light" href="https://goo.gl/maps/8r4c8ShQVrnsBJRH8">Estadio
+                                    Alberto J.
+                                    Armando</a></td>
+                            <td><button class="juego" v-on:click="chatDePartidos('4')">Game 4</button></td>
+                        </tr>
+                        <tr>
+                            <td>Equipo 1 vs Equipo 5</td>
+                            <td><a class="text-light" href="https://goo.gl/maps/khkgvQPuVWgw8Svv8">Estadio
+                                    Monumental
+                                    Antonio Vespucio
+                                    Liberti</a></td>
+                            <td><button class="juego" v-on:click="chatDePartidos('5')">Game 5</button></td>
+                        </tr>
+                        <td>Equipo 4 vs Equipo 3</td>
+                        <td><a class="text-light" href="https://goo.gl/maps/oXmifeZUP3Eoi9Hk9">Ciudad
+                                Deportiva -
+                                Club Atlético San
+                                Lorenzo de Almagro</a></td>
+                        <td><button class="juego" v-on:click="chatDePartidos('6')">Game 6</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6 d-none d-md-block d-lg-none">
+                <h3 class="text-light text-center">Mision</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis, esse ipsam deleniti ea
+                    ullam explicabo! Sit culpa labore aspernatur aut, debitis beatae laborum perferendis soluta
+                    tenetur cum at temporibus?</p>
+                <h3 class="text-light text-center">Information</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis, esse ipsam deleniti ea
+                    ullam explicabo! Sit culpa labore aspernatur aut, debitis beatae laborum perferendis soluta
+                    tenetur cum at temporibus?</p>
+            </div>
+        </div>
+
+        <!--PANTALLA CHAT-->
+        <div id="pantalla-chat" class="contenedor row justify-content-center d-none">
+            <div class="col-4">
+                <button class="juego" v-on:click="cambioDePantallas('segunda-pantalla','Information')">Atras</button>
+            </div>
+            <div class="col-8">
+                <h3 class="tituloForo text-light">Foro</h3>
+            </div>
+                <div class="col-12">
+                    <label><input type="text" name="publicar" v-model="message"></label>
+                    <button class="juego" v-on:click="publicar">publicar</button>
+                <div v-for="mensajes in messages">
+                    <p>De : {{mensajes.email}}</p>
+                    <p>mensaje : {{mensajes.mensaje}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--TERCERA PANTALLA-->
+
+        <div id="tercera-pantalla" class="contenedor row justify-content-center d-none">
+            <div class="col-12 col-lg-4">
+                <p> Av. Pres. Figueroa Alcorta 7597, C1428 CABA</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.325947651223!2d-58.45196358423821!3d-34.54530176191768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb43ae6018ddf%3A0x3d7f60a75bfa308a!2sEstadio%20Monumental%20Antonio%20Vespucio%20Liberti!5e0!3m2!1ses-419!2sar!4v1614085670503!5m2!1ses-419!2sar"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="col-12 col-lg-4">
+                <p> Brandsen 805, C1161 CABA</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.7559760548115!2d-58.366944984235815!3d-34.635606466694206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a334b6925e5473%3A0x1ca5b2748858b40d!2sEstadio%20Alberto%20J.%20Armando!5e0!3m2!1ses-419!2sar!4v1614085564845!5m2!1ses-419!2sar"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="col-12 col-lg-4">
+                <p> Av. Amancio Alcorta 2544, C1437 CABA</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52525.931639065646!2d-58.3828792625101!3d-34.63270696380348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81056e9a47154f36!2sCLUB%20ATLETICO%20HURACAN!5e0!3m2!1ses-419!2sar!4v1614086885943!5m2!1ses-419!2sar"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!--CUARTA PANTALLA-->
+
+        <div id="cuarta-pantalla" class="contenedor row justify-content-center d-none">
+            <div class="col-8">
+                <p>Please email us at <a id="mail" href="mailto:nysl@chisoccer.org">nysl@chisoccer.org</a></p>
+
+                <p>We will reply to your email as soon as we can</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCC_gdMxcbGa96cBq2NeLWrrJnGow6F_n0",
+            authDomain: "nysl-9e943.firebaseapp.com",
+            databaseURL: "https://nysl-9e943-default-rtdb.firebaseio.com",
+            projectId: "nysl-9e943",
+            storageBucket: "nysl-9e943.appspot.com",
+            messagingSenderId: "205908797689",
+            appId: "1:205908797689:web:0b7414fcc1a2a7d45c5a28"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
